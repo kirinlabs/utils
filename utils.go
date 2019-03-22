@@ -1,3 +1,9 @@
+// Copyright 2017 The Kirinlabs. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Package utils implements a simple public method for rapid development.
+
 package utils
 
 import (
@@ -6,27 +12,7 @@ import (
 	"reflect"
 )
 
-func Type(arg interface{}) string {
-	return reflect.TypeOf(arg).String()
-}
-
-func Export(v interface{}) string {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return ""
-	}
-	var buf bytes.Buffer
-	err = json.Indent(&buf, b, "", "\t")
-	if err != nil {
-		return ""
-	}
-	return buf.String()
-}
-
-func Json(v interface{}) string {
-	return Export(v)
-}
-
+// Determine if the variable is null
 func Empty(arg interface{}) bool {
 	if arg == nil {
 		return true
@@ -42,6 +28,30 @@ func Empty(arg interface{}) bool {
 		v = v.Elem()
 	}
 	return v.Interface() == reflect.Zero(v.Type()).Interface()
+}
+
+// Returns a Json string for the variable
+func Export(v interface{}) string {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return ""
+	}
+	var buf bytes.Buffer
+	err = json.Indent(&buf, b, "", "\t")
+	if err != nil {
+		return ""
+	}
+	return buf.String()
+}
+
+// Returns a Json string for the variable
+func Json(v interface{}) string {
+	return Export(v)
+}
+
+// Returns a string of variable type
+func Type(arg interface{}) string {
+	return reflect.TypeOf(arg).String()
 }
 
 func IsInt(arg interface{}) bool {
@@ -76,13 +86,6 @@ func IsString(arg interface{}) bool {
 	return false
 }
 
-func IsUSlice(arg interface{}) bool {
-	if Type(arg) == "[]uint8" {
-		return true
-	}
-	return false
-}
-
 func IsTime(arg interface{}) bool {
 	if Type(arg) == "time.Time" {
 		return true
@@ -104,4 +107,11 @@ func IsSlice(arg interface{}) bool {
 	default:
 		return false
 	}
+}
+
+func IsUSlice(arg interface{}) bool {
+	if Type(arg) == "[]uint8" {
+		return true
+	}
+	return false
 }

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kirinlabs/utils/iface"
+	"github.com/kirinlabs/utils"
 )
 
 // timestamp
@@ -51,7 +51,7 @@ func Timestamp(args ...string) int64 {
 		timestamp = time.Now().Unix()
 	}
 	if l > 0 {
-		if iface.IsString(args[0]) {
+		if utils.IsString(args[0]) {
 			t, err := Strtotime(string(args[0]), "2006-01-02 15:04:05")
 			if err != nil {
 				log.Println("datetime.Timestamp error:", err)

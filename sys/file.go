@@ -4,13 +4,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"str"
 	"strings"
-	"utils/str"
 )
 
-/**
-* file
-**/
 func RealPath(f string) string {
 	p, err := filepath.Abs(f)
 	if err != nil {
