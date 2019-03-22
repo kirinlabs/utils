@@ -137,8 +137,8 @@ Utils is a go language development toolkit that mainly includes functions for st
 
 ## sys
 
-```
-  "github.com/kirinlabs/uitls/sys"
+```go
+  import "github.com/kirinlabs/uitls/sys"
 
   sys.RealPath(f string) string
   sys.IsExists(path string) bool
