@@ -113,8 +113,8 @@ Utils is a go language development toolkit that mainly includes functions for st
 
 ## Dict
 
-```
-  "github.com/kirinlabs/uitls/dict"
+```go
+  import "github.com/kirinlabs/uitls/dict"
 
   dict.HasKey(src map[string]interface{}, key string) bool
   dict.Delete(src map[string]interface{}, args ...string)
