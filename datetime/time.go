@@ -3,10 +3,11 @@ package datetime
 import (
 	"errors"
 	"fmt"
-	"kirinlabs/kitutils/iface"
 	"log"
 	"strings"
 	"time"
+
+	"github.com/kirinlabs/utils/iface"
 )
 
 // timestamp

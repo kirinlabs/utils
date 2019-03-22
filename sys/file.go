@@ -1,12 +1,11 @@
-package kutils
+package sys
 
 import (
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/kirinlabs/kutils/str"
+	"utils/str"
 )
 
 /**

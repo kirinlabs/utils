@@ -7,7 +7,8 @@ import (
 	"reflect"
 	"strings"
 	"time"
-	"utils/str"
+
+	"github.com/kirinlabs/utils/str"
 )
 
 func InSlice(v interface{}, s interface{}) bool {
@@ -72,7 +73,7 @@ func InIfaceSlice(v interface{}, sl []interface{}) bool {
 	return false
 }
 
-func Interface(iface interface{}) ([]interface{}, error) {
+func Slice(iface interface{}) ([]interface{}, error) {
 	d := make([]interface{}, 0)
 	v := reflect.Indirect(reflect.ValueOf(iface))
 	if v.Kind() != reflect.Slice {
