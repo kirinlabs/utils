@@ -9,6 +9,25 @@ Utils is a go language development toolkit that mainly includes functions for st
 ### How to use utils?
 
 
+## Public
+
+```
+  import "github.com/kirinlabs/uitls"
+
+  uitls.Json(a interface{}) string
+  uitls.Empty(a interface{}) bool
+  uitls.Type(a interface{}) string
+  uitls.IsInt(arg interface{}) bool
+  uitls.IsInt64(arg interface{}) bool
+  uitls.IsFloat64(arg interface{}) bool
+  uitls.IsString(arg interface{}) bool
+  uitls.IsUSlice(arg interface{}) bool
+  uitls.IsTime(arg interface{}) bool
+  uitls.IsBool(arg interface{}) bool
+  uitls.IsSlice(arg interface{}) bool
+
+```
+
 ## String
 
 ```go
@@ -51,4 +70,79 @@ Utils is a go language development toolkit that mainly includes functions for st
   sli.RandInt64(a []int64) (b int64)
   sli.Sum(i []int64) (s int64)
   sli.Range(start, end, step int64) (intslice []int64)
+```
+
+## Convert
+
+```go
+  import "github.com/kirinlabs/uitls/convert"
+
+  convert.Int(v interface{}) (int64, error)
+  convert.Float(v interface{}) (float64, error)
+  convert.Bool(bs []byte) (bool, error)
+  convert.Bytes(buf []byte, val reflect.Value) (b []byte, ok bool)
+  convert.String(iface interface{}) string
+  convert.Kind(vv reflect.Value, tp reflect.Type) (interface{}, error)
+
+```
+
+
+## Datetime
+
+```go
+  import "github.com/kirinlabs/uitls/datetime"
+
+  datetime.Gmtime() string
+  datetime.Localtime() string
+  datetime.Strtotime(s string, args ...string) (time.Time, error)
+  datetime.String(format ...string) string
+  datetime.Year(t ...time.Time) int
+  datetime.Month(t ...time.Time) int
+  datetime.Day(t ...time.Time) int
+  datetime.YearDay(t ...time.Time) int
+  datetime.Hour(t ...time.Time) int
+  datetime.Minute(t ...time.Time) int
+  datetime.Second(t ...time.Time) int
+  datetime.Millisecond() int64
+  datetime.Microsecond() int64
+  datetime.Nanosecond() int64
+  datetime.Timestamp(args ...string) int64
+
+```
+
+
+## Dict
+
+```
+  "github.com/kirinlabs/uitls/dict"
+
+  dict.HasKey(src map[string]interface{}, key string) bool
+  dict.Delete(src map[string]interface{}, args ...string)
+  dict.Keys(src map[string]interface{}) []string
+
+```
+
+## Encrypt
+
+```go
+  import "github.com/kirinlabs/uitls/encrypt"
+
+  encrypt.Md5(s string) (result string)
+  encrypt.Sha1(s string) (result string)
+  encrypt.Sha256(s string) (result string)
+  encrypt.Sha512(s string) (result string)
+  encrypt.Base64Encode(s string) (result string)
+  encrypt.Base64Decode(s string) (string, error)
+```
+
+## sys
+
+```
+  "github.com/kirinlabs/uitls/sys"
+
+  sys.RealPath(f string) string
+  sys.IsExists(path string) bool
+  sys.IsFile(f string) bool
+  sys.IsDir(p string) bool
+
 ```
