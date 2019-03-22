@@ -12,20 +12,19 @@ Utils is a go language development toolkit that mainly includes functions for st
 ## Public
 
 ```go
-  import "github.com/kirinlabs/uitls"
+import "github.com/kirinlabs/uitls"
 
-  uitls.Json(arg interface{}) string
-  uitls.Empty(arg interface{}) bool
-  uitls.Type(arg interface{}) string
-  uitls.IsInt(arg interface{}) bool
-  uitls.IsInt64(arg interface{}) bool
-  uitls.IsFloat64(arg interface{}) bool
-  uitls.IsString(arg interface{}) bool
-  uitls.IsUSlice(arg interface{}) bool
-  uitls.IsTime(arg interface{}) bool
-  uitls.IsBool(arg interface{}) bool
-  uitls.IsSlice(arg interface{}) bool
-
+uitls.Json(arg interface{}) string
+uitls.Empty(arg interface{}) bool
+uitls.Type(arg interface{}) string
+uitls.IsInt(arg interface{}) bool
+uitls.IsInt64(arg interface{}) bool
+uitls.IsFloat64(arg interface{}) bool
+uitls.IsString(arg interface{}) bool
+uitls.IsUSlice(arg interface{}) bool
+uitls.IsTime(arg interface{}) bool
+uitls.IsBool(arg interface{}) bool
+uitls.IsSlice(arg interface{}) bool
 ```
 
 ## String
@@ -114,11 +113,11 @@ Utils is a go language development toolkit that mainly includes functions for st
 ## Dict
 
 ```go
-  import "github.com/kirinlabs/uitls/dict"
+import "github.com/kirinlabs/uitls/dict"
 
-  dict.HasKey(src map[string]interface{}, key string) bool
-  dict.Delete(src map[string]interface{}, args ...string)
-  dict.Keys(src map[string]interface{}) []string
+dict.HasKey(src map[string]interface{}, key string) bool
+dict.Delete(src map[string]interface{}, args ...string)
+dict.Keys(src map[string]interface{}) []string
 
 ```
 
