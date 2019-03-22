@@ -101,12 +101,10 @@ func IsBool(arg interface{}) bool {
 }
 
 func IsSlice(arg interface{}) bool {
-	switch arg.(type) {
-	case []interface{}:
+	if reflect.TypeOf(arg).Kind().String() == "slice" {
 		return true
-	default:
-		return false
 	}
+	return false
 }
 
 func IsUSlice(arg interface{}) bool {
