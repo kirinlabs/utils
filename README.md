@@ -11,7 +11,7 @@ Utils is a go language development toolkit that mainly includes functions for st
 
 ## Public
 
-```
+```go
   import "github.com/kirinlabs/uitls"
 
   uitls.Json(a interface{}) string
