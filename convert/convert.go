@@ -7,6 +7,14 @@ import (
 	"strconv"
 )
 
+func Atoi(v string) int {
+	n, err := strconv.Atoi(v)
+	if err != nil {
+		return 0
+	}
+	return n
+}
+
 func Int(v interface{}) (int64, error) {
 	switch v.(type) {
 	case int:
