@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"../str"
+	"github.com/kirinlabs/utils/str"
 )
 
 func InSlice(v interface{}, s interface{}) bool {

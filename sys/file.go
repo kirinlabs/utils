@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"../str"
+	"github.com/kirinlabs/utils/str"
 )
 
 func RealPath(f string) string {
