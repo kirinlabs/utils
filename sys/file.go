@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"utils/str"
 )
 
 func RealPath(f string) string {
@@ -14,7 +15,7 @@ func RealPath(f string) string {
 	}
 	p = strings.Replace(p, "\\", "/", -1)
 	l := strings.LastIndex(p, "/") + 1
-	return Substr(p, 0, l)
+	return str.Substr(p, 0, l)
 }
 
 func IsExists(path string) bool {
@@ -48,44 +49,4 @@ func IsDir(p string) bool {
 		return true
 	}
 	return false
-}
-
-func Substr(s string, start int, strlength ...int) string {
-	charlist := []rune(s)
-	l := len(charlist)
-	length := 0
-	end := 0
-
-	if len(strlength) == 0 {
-		length = l
-	} else {
-		length = strlength[0]
-	}
-
-	if start < 0 {
-		start = l + start
-	}
-	end = start + length
-
-	if start > end {
-		start, end = end, start
-	}
-
-	if start < 0 {
-		start = 0
-	}
-
-	if start > l {
-		start = l
-	}
-
-	if end < 0 {
-		end = 0
-	}
-
-	if end > l {
-		end = l
-	}
-
-	return string(charlist[start:end])
 }
