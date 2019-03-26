@@ -1,1 +1,1 @@
-module utils
+module github.com/kirinlabs/utils

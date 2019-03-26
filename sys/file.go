@@ -5,7 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"utils/str"
+
+	"../str"
 )
 
 func RealPath(f string) string {

@@ -2,14 +2,7 @@ package utils
 
 import (
 	"testing"
-
-	"utils/sys"
 )
-
-func TestRealPath(t *testing.T) {
-	filename := "./utils.go"
-	sys.RealPath(filename)
-}
 
 func TestEmpty(t *testing.T) {
 	type KV struct {
