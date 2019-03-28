@@ -120,6 +120,19 @@ func Unique(list *[]string) []string {
 }
 
 func UniqueInt(list *[]int) []int {
+	r := make([]int, 0)
+	temp := map[int]byte{}
+	for _, v := range *list {
+		l := len(temp)
+		temp[v] = 0
+		if len(temp) != l {
+			r = append(r, v)
+		}
+	}
+	return r
+}
+
+/*func UniqueInt(list *[]int) []int {
 	var r []int = []int{}
 	for _, i := range *list {
 		if len(r) == 0 {
@@ -136,7 +149,7 @@ func UniqueInt(list *[]int) []int {
 		}
 	}
 	return r
-}
+}*/
 
 func UniqueInt64(list *[]int64) []int64 {
 	var r []int64 = []int64{}
