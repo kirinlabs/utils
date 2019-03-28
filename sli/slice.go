@@ -152,19 +152,13 @@ func UniqueInt(list *[]int) []int {
 }*/
 
 func UniqueInt64(list *[]int64) []int64 {
-	var r []int64 = []int64{}
-	for _, i := range *list {
-		if len(r) == 0 {
-			r = append(r, i)
-		} else {
-			for k, v := range r {
-				if i == v {
-					break
-				}
-				if k == len(r)-1 {
-					r = append(r, i)
-				}
-			}
+	r := make([]int64, 0)
+	temp := map[int64]byte{}
+	for _, v := range *list {
+		l := len(temp)
+		temp[v] = 0
+		if len(temp) != l {
+			r = append(r, v)
 		}
 	}
 	return r
