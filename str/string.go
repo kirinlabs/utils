@@ -64,7 +64,7 @@ func AfterLast(s, substr string) string {
 }
 
 func Index(s, substr string) int {
-	return strings.Index(s,substr)
+	return strings.Index(s, substr)
 }
 
 func Contians(s, substr string) bool {
@@ -89,12 +89,12 @@ func EndsWith(s, substr string) bool {
 func Substr(s string, start int, strlength ...int) string {
 	charlist := []rune(s)
 	l := len(charlist)
-	length :=0
+	length := 0
 	end := 0
 
-	if len(strlength)==0{
+	if len(strlength) == 0 {
 		length = l
-	}else{
+	} else {
 		length = strlength[0]
 	}
 
@@ -165,7 +165,7 @@ func String(iface interface{}) string {
 		return strconv.FormatFloat(v.Float(), 'f', -1, 64)
 	case reflect.Float32:
 		return strconv.FormatFloat(v.Float(), 'f', -1, 32)
-	case reflect.Ptr:
+	case reflect.Ptr, reflect.Struct:
 		b, err := json.Marshal(v.Interface())
 		if err != nil {
 			return "nil"
