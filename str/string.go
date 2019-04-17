@@ -67,6 +67,25 @@ func Index(s, substr string) int {
 	return strings.Index(s, substr)
 }
 
+func RuneIndex(s, substr string) int {
+	p := strings.Index(s, substr)
+	if p == -1 || p == 0 {
+		return p
+	}
+	pos := 0
+	totalSize := 0
+	reader := strings.NewReader(s)
+	for _, size, err := reader.ReadRune(); err == nil; _, size, err = reader.ReadRune() {
+		pos++
+		totalSize += size
+
+		if totalSize == p {
+			return pos
+		}
+	}
+	return pos
+}
+
 func Contians(s, substr string) bool {
 	return strings.Contains(s, substr)
 }
