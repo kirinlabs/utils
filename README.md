@@ -34,6 +34,7 @@ Utils is a go language development toolkit that mainly includes functions for st
   import "github.com/kirinlabs/uitls/str"
 
   s := "hello github"
+  str.RuneIndex(s,"github")
   str.Substr(s, 2, 3)
   str.Char(s)
   str.Escape(s)
