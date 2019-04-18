@@ -53,6 +53,19 @@ func Json(v interface{}) string {
 	return string(b)
 }
 
+// Returns a interface{}
+func Decode(s string, args ...interface{}) interface{} {
+	var i interface{}
+	if len(args) > 0 {
+		i = args[0]
+	}
+	err := json.Unmarshal([]byte(s), &i)
+	if err != nil {
+		return nil
+	}
+	return i
+}
+
 // Returns a string of variable type
 func Type(arg interface{}) string {
 	return reflect.TypeOf(arg).String()
