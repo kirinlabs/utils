@@ -30,7 +30,7 @@ func Empty(arg interface{}) bool {
 	return v.Interface() == reflect.Zero(v.Type()).Interface()
 }
 
-// Returns a Json string for the variable
+// Returns a formatted Json string
 func Export(v interface{}) string {
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -44,9 +44,13 @@ func Export(v interface{}) string {
 	return buf.String()
 }
 
-// Returns a Json string for the variable
+// Returns a Json string
 func Json(v interface{}) string {
-	return Export(v)
+	b, err := json.Marshal(v)
+	if err != nil {
+		return ""
+	}
+	return string(b)
 }
 
 // Returns a string of variable type
