@@ -233,7 +233,43 @@ func Diff(slice1, slice2 []string) (diffslice []string) {
 	return
 }
 
+func DiffInt(slice1, slice2 []int) (diffslice []int) {
+	for _, v := range slice1 {
+		if !InSlice(v, slice2) {
+			diffslice = append(diffslice, v)
+		}
+	}
+	return
+}
+
+func DiffInt64(slice1, slice2 []int64) (diffslice []int64) {
+	for _, v := range slice1 {
+		if !InSlice(v, slice2) {
+			diffslice = append(diffslice, v)
+		}
+	}
+	return
+}
+
 func Intersect(slice1, slice2 []string) (interSlice []string) {
+	for _, v := range slice1 {
+		if InSlice(v, slice2) {
+			interSlice = append(interSlice, v)
+		}
+	}
+	return
+}
+
+func IntersectInt(slice1, slice2 []int) (interSlice []int) {
+	for _, v := range slice1 {
+		if InSlice(v, slice2) {
+			interSlice = append(interSlice, v)
+		}
+	}
+	return
+}
+
+func IntersectIn64(slice1, slice2 []int64) (interSlice []int64) {
 	for _, v := range slice1 {
 		if InSlice(v, slice2) {
 			interSlice = append(interSlice, v)
