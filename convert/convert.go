@@ -121,10 +121,10 @@ func String(iface interface{}) string {
 		return strconv.FormatFloat(v.Float(), 'f', -1, 64)
 	case reflect.Float32:
 		return strconv.FormatFloat(v.Float(), 'f', -1, 32)
-	case reflect.Ptr:
+	case reflect.Ptr, reflect.Struct, reflect.Map:
 		b, err := json.Marshal(v.Interface())
 		if err != nil {
-			return "nil"
+			return ""
 		}
 		return string(b)
 	}
