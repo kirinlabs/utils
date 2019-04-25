@@ -10,6 +10,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"reflect"
+	"strconv"
+	"strings"
 )
 
 // Determine if the variable is null
@@ -129,4 +131,33 @@ func IsUSlice(arg interface{}) bool {
 		return true
 	}
 	return false
+}
+
+func JoinInt(s []int, sep ...string) string {
+	sepLetter := ","
+	if len(sep) > 0 {
+		sepLetter = sep[0]
+	}
+	str := make([]string, 0)
+	for _, v := range s {
+		str = append(str, strconv.Itoa(v))
+	}
+	return strings.Join(str, sepLetter)
+}
+
+func SplitInt(str string, sep ...string) ([]int, error) {
+	sepLetter := ","
+	if len(sep) > 0 {
+		sepLetter = sep[0]
+	}
+	i := make([]int, 0)
+	s := strings.Split(str, sepLetter)
+	for _, v := range s {
+		d, err := strconv.Atoi(v)
+		if err != nil {
+			return []int{}, err
+		}
+		i = append(i, d)
+	}
+	return i, nil
 }
