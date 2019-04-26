@@ -77,7 +77,7 @@ func Slice(iface interface{}) ([]interface{}, error) {
 	d := make([]interface{}, 0)
 	v := reflect.Indirect(reflect.ValueOf(iface))
 	if v.Kind() != reflect.Slice {
-		return nil, errors.New("Needs a slice")
+		return []interface{}{}, errors.New("Needs a slice")
 	}
 	t := reflect.TypeOf(iface).Elem().String()
 	switch t {
