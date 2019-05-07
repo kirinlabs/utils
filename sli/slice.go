@@ -14,20 +14,20 @@ import (
 func InSlice(v interface{}, s interface{}) bool {
 	val := reflect.Indirect(reflect.ValueOf(v))
 	if val.Kind() == reflect.Slice {
-		log.Println("Warning: First parameter cannot be a slice, FUNCTION: InSlice")
+		log.Println("Warning: first parameter cannot be a slice, Function: InSlice")
 		return false
 	}
 
 	sv := reflect.Indirect(reflect.ValueOf(s))
 	if sv.Kind() != reflect.Slice {
-		log.Println("Warning: Second parameter Needs a slice, FUNCTION: InSlice")
+		log.Println("Warning: second parameter needs a slice, Function: InSlice")
 		return false
 	}
 
 	st := reflect.TypeOf(s).Elem().String()
 	vt := reflect.TypeOf(v).String()
 	if st != vt {
-		log.Println("Warning: Two parameters are not the same type, FUNCTION: InSlice")
+		log.Println("Warning: two parameters are not the same type, Function: InSlice")
 		return false
 	}
 
@@ -57,7 +57,7 @@ func InSlice(v interface{}, s interface{}) bool {
 			}
 		}
 	default:
-		log.Println("Warning: This type is not supported, FUNCTION: InSlice")
+		log.Println("Warning: this type is not supported, Function: InSlice")
 		return false
 	}
 
@@ -101,7 +101,7 @@ func Slice(iface interface{}) ([]interface{}, error) {
 			d = append(d, v)
 		}
 	default:
-		return d, errors.New("This type is not supported")
+		return d, errors.New("this type is not supported")
 	}
 	return d, nil
 }
