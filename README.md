@@ -57,7 +57,7 @@ Utils is a go language development toolkit that mainly includes functions for st
   import "github.com/kirinlabs/uitls/sli"
 
   sli.InSlice(v interface{}, s interface{}) bool
-  sli.InIfaceSlice(v interface{}, sl []interface{}) bool
+  sli.InInterface(v interface{}, sl []interface{}) bool
   sli.Slice(iface interface{}) ([]interface{}, error)    //Support []string,[]int,[]int64,[]float64
   sli.Unique(list *[]string) []string
   sli.UniqueInt(list *[]int) []int
@@ -68,6 +68,10 @@ Utils is a go language development toolkit that mainly includes functions for st
   sli.Shuffle(slice []interface{}) []interface{}
   sli.Diff(slice1, slice2 []string) (diffslice []string)
   sli.Intersect(slice1, slice2 []string) (interSlice []string)
+  sli.Reverse(list *[]string) []string
+  sli.ReverseInt(list *[]int) []int
+  sli.ReverseInt64(list *[]int64) []int64
+  sli.ReverseFloat(list *[]float64) []float64
   sli.Rand(a []string) (b string)
   sli.RandInt(a []int) (b int)
   sli.RandInt64(a []int64) (b int64)
