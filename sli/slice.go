@@ -64,7 +64,7 @@ func InSlice(v interface{}, s interface{}) bool {
 	return false
 }
 
-func InIfaceSlice(v interface{}, sl []interface{}) bool {
+func InInterface(v interface{}, sl []interface{}) bool {
 	for _, vv := range sl {
 		if vv == v {
 			return true
@@ -164,6 +164,19 @@ func UniqueInt64(list *[]int64) []int64 {
 	return r
 }
 
+func UniqueFloat(list *[]float64) []float64 {
+	r := make([]float64, 0)
+	temp := map[float64]byte{}
+	for _, v := range *list {
+		l := len(temp)
+		temp[v] = 0
+		if len(temp) != l {
+			r = append(r, v)
+		}
+	}
+	return r
+}
+
 func Chunk(slice []interface{}, size int) (chunk [][]interface{}) {
 	if size <= 0 {
 		chunk = make([][]interface{}, 0)
@@ -243,6 +256,15 @@ func DiffInt(slice1, slice2 []int) (diffslice []int) {
 }
 
 func DiffInt64(slice1, slice2 []int64) (diffslice []int64) {
+	for _, v := range slice1 {
+		if !InSlice(v, slice2) {
+			diffslice = append(diffslice, v)
+		}
+	}
+	return
+}
+
+func DiffFloat(slice1, slice2 []float64) (diffslice []float64) {
 	for _, v := range slice1 {
 		if !InSlice(v, slice2) {
 			diffslice = append(diffslice, v)
@@ -353,7 +375,7 @@ func Pad(slice []interface{}, size int, val interface{}) []interface{} {
 
 func SliceUnique(slice []interface{}) (uniqueslice []interface{}) {
 	for _, v := range slice {
-		if !InIfaceSlice(v, uniqueslice) {
+		if !InInterface(v, uniqueslice) {
 			uniqueslice = append(uniqueslice, v)
 		}
 	}
