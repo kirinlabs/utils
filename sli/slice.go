@@ -278,6 +278,62 @@ func IntersectIn64(slice1, slice2 []int64) (interSlice []int64) {
 	return
 }
 
+func Reverse(s *[]string) []string {
+	l := len(*s) - 1
+	m := len(*s) / 2
+	r := make([]string, len(*s))
+	for i := 0; i < l; i++ {
+		j := l - i
+		if i == j || i >= m {
+			break
+		}
+		r[i], r[j] = (*s)[j], (*s)[i]
+	}
+	return r
+}
+
+func ReverseInt(s *[]int) []int {
+	l := len(*s) - 1
+	m := len(*s) / 2
+	r := make([]int, len(*s))
+	for i := 0; i < l; i++ {
+		j := l - i
+		if i == j || i >= m {
+			break
+		}
+		r[i], r[j] = (*s)[j], (*s)[i]
+	}
+	return r
+}
+
+func ReverseInt64(s *[]int64) []int64 {
+	l := len(*s) - 1
+	m := len(*s) / 2
+	r := make([]int64, len(*s))
+	for i := 0; i < l; i++ {
+		j := l - i
+		if i == j || i >= m {
+			break
+		}
+		r[i], r[j] = (*s)[j], (*s)[i]
+	}
+	return r
+}
+
+func ReverseFloat(s *[]float64) []float64 {
+	l := len(*s) - 1
+	m := len(*s) / 2
+	r := make([]float64, len(*s))
+	for i := 0; i < l; i++ {
+		j := l - i
+		if i == j || i >= m {
+			break
+		}
+		r[i], r[j] = (*s)[j], (*s)[i]
+	}
+	return r
+}
+
 func Range(start, end, step int64) (intslice []int64) {
 	for i := start; i <= end; i += step {
 		intslice = append(intslice, i)
