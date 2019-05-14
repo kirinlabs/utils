@@ -1,3 +1,3 @@
 module github.com/kirinlabs/utils
 
-go 1.12
+go 1.11
