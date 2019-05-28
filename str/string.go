@@ -199,6 +199,8 @@ func String(iface interface{}) string {
 	switch val := iface.(type) {
 	case []byte:
 		return string(val)
+	case string:
+		return val
 	}
 	v := reflect.ValueOf(iface)
 	switch v.Kind() {
