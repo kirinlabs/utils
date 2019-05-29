@@ -164,6 +164,19 @@ func UniqueInt64(list *[]int64) []int64 {
 	return r
 }
 
+func UniqueIface(list *[]interface{}) []interface{} {
+	r := make([]interface{}, 0)
+	temp := map[interface{}]byte{}
+	for _, v := range *list {
+		l := len(temp)
+		temp[v] = 0
+		if len(temp) != l {
+			r = append(r, v)
+		}
+	}
+	return r
+}
+
 func UniqueFloat(list *[]float64) []float64 {
 	r := make([]float64, 0)
 	temp := map[float64]byte{}
@@ -371,15 +384,6 @@ func Pad(slice []interface{}, size int, val interface{}) []interface{} {
 		slice = append(slice, val)
 	}
 	return slice
-}
-
-func SliceUnique(slice []interface{}) (uniqueslice []interface{}) {
-	for _, v := range slice {
-		if !InInterface(v, uniqueslice) {
-			uniqueslice = append(uniqueslice, v)
-		}
-	}
-	return
 }
 
 func Shuffle(slice []interface{}) []interface{} {
