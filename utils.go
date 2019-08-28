@@ -52,7 +52,16 @@ func Json(v interface{}) string {
 	return string(b)
 }
 
-func Decode(s string, args ...interface{}) error {
+func Decode(s string) interface{} {
+	var i interface{}
+	err := json.Unmarshal([]byte(s), &i)
+	if err != nil {
+		return nil
+	}
+	return i
+}
+
+func Unmarshal(s string, args ...interface{}) error {
 	if len(args) == 0 {
 		return errors.New("the second parameter is required.")
 	}

@@ -17,7 +17,8 @@ Utils is a go language development toolkit that mainly includes functions such a
   uitls.Empty(arg interface{}) bool
   uitls.Export(arg interface{}) string
   uitls.Json(arg interface{}) string
-  uitls.Decode(s string,arg ...interface{})
+  uitls.Decode(s string) error
+  utils.Unmarshal(s string, args ...interface{}) interface{}
   
   uitls.Type(arg interface{}) string
   uitls.IsInt(arg interface{}) bool
