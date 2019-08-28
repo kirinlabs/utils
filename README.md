@@ -1,6 +1,6 @@
 utils
 =====
-Utils is a go language development toolkit that mainly includes functions for string, slice, map, time, type judgment, type conversion, data compression, etc.
+Utils is a go language development toolkit that mainly includes functions such as string, slice, map, time, type judgment, type conversion, and data compression.
 
 
 ### Installing utils
@@ -14,16 +14,16 @@ Utils is a go language development toolkit that mainly includes functions for st
 ```go
   import "github.com/kirinlabs/uitls"
 
-  uitls.Json(arg interface{}) string
-  uitls.Decode(s string,arg ...interface{}) interface{}
-  uitls.Export(arg interface{}) string
   uitls.Empty(arg interface{}) bool
+  uitls.Export(arg interface{}) string
+  uitls.Json(arg interface{}) string
+  uitls.Decode(s string,arg ...interface{})
+  
   uitls.Type(arg interface{}) string
   uitls.IsInt(arg interface{}) bool
   uitls.IsInt64(arg interface{}) bool
   uitls.IsFloat64(arg interface{}) bool
   uitls.IsString(arg interface{}) bool
-  uitls.IsUSlice(arg interface{}) bool
   uitls.IsTime(arg interface{}) bool
   uitls.IsBool(arg interface{}) bool
   uitls.IsSlice(arg interface{}) bool
@@ -36,14 +36,16 @@ Utils is a go language development toolkit that mainly includes functions for st
   import "github.com/kirinlabs/uitls/str"
 
   s := "hello github"
-  str.RuneIndex(s,"github")
-  str.Substr(s, 2, 3)
-  str.Char(s)
-  str.Escape(s)
   str.Before(s, "github")
   str.BeforeLast(s, "github")
   str.After(s, "git")
   str.AfterLast(s, "git")
+  str.StartsWith(s, "hel")
+  str.EndsWitdh(s, "b")
+  str.RuneIndex(s,"github")
+  str.Substr(s, 2, 3)
+  str.Char(s)
+  str.Escape(s)
   str.Contians(s, "hub")
   str.StartsWith(s, "hel")
   str.EndsWitdh(s, "b")
@@ -58,7 +60,7 @@ Utils is a go language development toolkit that mainly includes functions for st
 
   sli.InSlice(v interface{}, s interface{}) bool
   sli.InInterface(v interface{}, sl []interface{}) bool
-  sli.Slice(iface interface{}) ([]interface{}, error)    //Support []string,[]int,[]int64,[]float64
+  sli.Slice(iface interface{}) ([]interface{}, error)
   sli.Unique(list *[]string) []string
   sli.UniqueInt(list *[]int) []int
   sli.UniqueInt64(list *[]int64) []int64
@@ -77,6 +79,8 @@ Utils is a go language development toolkit that mainly includes functions for st
   sli.RandInt64(a []int64) (b int64)
   sli.Sum(i []int64) (s int64)
   sli.Range(start, end, step int64) (intslice []int64)
+  sli.JoinInt(s []int,sep ...string) string
+  sli.SplitInt(str string, sep ...string) ([]int, error)
 ```
 
 ## Convert
@@ -117,29 +121,17 @@ Utils is a go language development toolkit that mainly includes functions for st
 
 ```
 
-
-## Dict
-
-```go
-  import "github.com/kirinlabs/uitls/dict"
-
-  dict.HasKey(src map[string]interface{}, key string) bool
-  dict.Delete(src map[string]interface{}, args ...string)
-  dict.Keys(src map[string]interface{}) []string
-
-```
-
 ## Encrypt
 
 ```go
   import "github.com/kirinlabs/uitls/encrypt"
 
-  encrypt.Md5(s string) (result string)
-  encrypt.Sha1(s string) (result string)
-  encrypt.Sha256(s string) (result string)
-  encrypt.Sha512(s string) (result string)
-  encrypt.Base64Encode(s string) (result string)
-  encrypt.Base64Decode(s string) (string, error)
+  encrypt.Md5(s string) string
+  encrypt.Sha1(s string) string
+  encrypt.Sha256(s string) string
+  encrypt.Sha512(s string) string
+  encrypt.Base64Encode(s string) string
+  encrypt.Base64Decode(s string) string
 ```
 
 ## sys

@@ -5,11 +5,41 @@ import (
 	"log"
 	"math/rand"
 	"reflect"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/kirinlabs/utils/str"
 )
+
+func JoinInt(s []int, sep ...string) string {
+	l := ","
+	if len(sep) > 0 {
+		l = sep[0]
+	}
+	str := make([]string, 0)
+	for _, v := range s {
+		str = append(str, strconv.FormatInt(int64(v), 10))
+	}
+	return strings.Join(str, l)
+}
+
+func SplitInt(str string, sep ...string) ([]int, error) {
+	l := ","
+	if len(sep) > 0 {
+		l = sep[0]
+	}
+	i := make([]int, 0)
+	s := strings.Split(str, l)
+	for _, v := range s {
+		d, err := strconv.Atoi(v)
+		if err != nil {
+			return []int{}, err
+		}
+		i = append(i, d)
+	}
+	return i, nil
+}
 
 func InSlice(v interface{}, s interface{}) bool {
 	val := reflect.Indirect(reflect.ValueOf(v))
