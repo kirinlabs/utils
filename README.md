@@ -52,6 +52,7 @@ Utils is a go language development toolkit that mainly includes functions such a
   str.EndsWitdh(s, "b")
   str.String(i interface{})
   str.Length(s)
+  str.Ufirst(s)
 ```
 
 ## Slice

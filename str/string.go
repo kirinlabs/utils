@@ -6,6 +6,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 // Length returns number of characters
@@ -192,6 +193,15 @@ func Escape(s string) string {
 	strlist := []rune(str)
 	l := len(strlist)
 	return Substr(str, 1, l-2)
+}
+
+func Ufirst(s string) string {
+	r := []rune(s)
+	if len(s) > 0 && unicode.IsLetter(r[0]) && unicode.IsLower(r[0]) {
+		r[0] -= 32
+		return string(r)
+	}
+	return s
 }
 
 // String returns a string of any type
