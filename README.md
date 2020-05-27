@@ -12,22 +12,22 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## Public
 
 ```go
-  import "github.com/kirinlabs/uitls"
+  import "github.com/kirinlabs/utils"
 
-  uitls.Empty(arg interface{}) bool
-  uitls.Export(arg interface{}) string
-  uitls.Json(arg interface{}) string
-  uitls.Decode(s string) error
+  utils.Empty(arg interface{}) bool
+  utils.Export(arg interface{}) string
+  utils.Json(arg interface{}) string
+  utils.Decode(s string) error
   utils.Unmarshal(s string, args ...interface{}) interface{}
   
-  uitls.Type(arg interface{}) string
-  uitls.IsInt(arg interface{}) bool
-  uitls.IsInt64(arg interface{}) bool
-  uitls.IsFloat64(arg interface{}) bool
-  uitls.IsString(arg interface{}) bool
-  uitls.IsTime(arg interface{}) bool
-  uitls.IsBool(arg interface{}) bool
-  uitls.IsSlice(arg interface{}) bool
+  utils.Type(arg interface{}) string
+  utils.IsInt(arg interface{}) bool
+  utils.IsInt64(arg interface{}) bool
+  utils.IsFloat64(arg interface{}) bool
+  utils.IsString(arg interface{}) bool
+  utils.IsTime(arg interface{}) bool
+  utils.IsBool(arg interface{}) bool
+  utils.IsSlice(arg interface{}) bool
 
 ```
 
