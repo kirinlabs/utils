@@ -34,7 +34,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## String
 
 ```go
-  import "github.com/kirinlabs/uitls/str"
+  import "github.com/kirinlabs/utils/str"
 
   s := "hello github"
   str.Before(s, "github")
@@ -58,7 +58,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## Slice
 
 ```go
-  import "github.com/kirinlabs/uitls/sli"
+  import "github.com/kirinlabs/utils/sli"
 
   sli.InSlice(v interface{}, s interface{}) bool
   sli.InInterface(v interface{}, sl []interface{}) bool
@@ -88,7 +88,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## Convert
 
 ```go
-  import "github.com/kirinlabs/uitls/convert"
+  import "github.com/kirinlabs/utils/convert"
 
   convert.Int(v interface{}) (int64, error)
   convert.Float(v interface{}) (float64, error)
@@ -103,7 +103,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## Datetime
 
 ```go
-  import "github.com/kirinlabs/uitls/datetime"
+  import "github.com/kirinlabs/utils/datetime"
 
   datetime.Gmtime() string
   datetime.Localtime() string
@@ -126,7 +126,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## Encrypt
 
 ```go
-  import "github.com/kirinlabs/uitls/encrypt"
+  import "github.com/kirinlabs/utils/encrypt"
 
   encrypt.Md5(s string) string
   encrypt.Sha1(s string) string
@@ -139,7 +139,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ## sys
 
 ```go
-  import "github.com/kirinlabs/uitls/sys"
+  import "github.com/kirinlabs/utils/sys"
 
   sys.RealPath(f string) string
   sys.IsExists(path string) bool
