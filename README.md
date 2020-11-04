@@ -134,6 +134,12 @@ Utils is a go language development toolkit that mainly includes functions such a
   encrypt.Sha512(s string) string
   encrypt.Base64Encode(s string) string
   encrypt.Base64Decode(s string) string
+
+  AES/ECB
+  ae := encrypt.NewEcb([]byte("0123456789ABCDEF"))
+  encrypted, err := ae.Encrypt(src []byte)   
+  decrypted, err := ae.Decrypt(encrypted []byte)
+  
 ```
 
 ## sys
