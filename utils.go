@@ -73,14 +73,14 @@ func Unmarshal(s string, args ...interface{}) error {
 }
 
 // utils.If(c).Then(v).Else(v).String()
-func If(c bool) *IfThen {
-	return new(IfThen).If(c)
+func If(c bool) *ifThen {
+	return new(ifThen).If(c)
 }
 
-func Then(v interface{}) *IfThen {
-	return new(IfThen).Then(v)
+func Then(v interface{}) *ifThen {
+	return new(ifThen).Then(v)
 }
 
-func Else(v interface{}) *IfThen {
-	return new(IfThen).Else(v)
+func Else(v interface{}) *ifThen {
+	return new(ifThen).Else(v)
 }

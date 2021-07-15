@@ -9,29 +9,29 @@ import (
 	"strconv"
 )
 
-type IfThen struct {
+type ifThen struct {
 	c bool
 	t interface{}
 	e interface{}
 	v interface{}
 }
 
-func (i *IfThen) If(c bool) *IfThen {
+func (i *ifThen) If(c bool) *ifThen {
 	i.c = c
 	return i
 }
 
-func (i *IfThen) Then(v interface{}) *IfThen {
+func (i *ifThen) Then(v interface{}) *ifThen {
 	i.t = v
 	return i
 }
 
-func (i *IfThen) Else(v interface{}) *IfThen {
+func (i *ifThen) Else(v interface{}) *ifThen {
 	i.e = v
 	return i
 }
 
-func (i *IfThen) String() string {
+func (i *ifThen) String() string {
 	if i.c {
 		i.v = i.t
 	} else {
@@ -40,7 +40,7 @@ func (i *IfThen) String() string {
 	return fmt.Sprintf("%v", i.v)
 }
 
-func (i *IfThen) Int() (int64, error) {
+func (i *ifThen) Int() (int64, error) {
 	if i.c {
 		i.v = i.t
 	} else {
@@ -77,7 +77,7 @@ func (i *IfThen) Int() (int64, error) {
 	return 0, fmt.Errorf("Unsupported type: %v", i.v)
 }
 
-func (i *IfThen) Float() (float64, error) {
+func (i *ifThen) Float() (float64, error) {
 	if i.c {
 		i.v = i.t
 	} else {
