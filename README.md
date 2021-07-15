@@ -28,6 +28,9 @@ Utils is a go language development toolkit that mainly includes functions such a
   utils.IsTime(arg interface{}) bool
   utils.IsBool(arg interface{}) bool
   utils.IsSlice(arg interface{}) bool
+  utils.If(c bool).Then(v interface{}).Else(v interface{}).String()  string
+  utils.If(c bool).Then(v interface{}).Else(v interface{}).Int()     int64 error
+  utils.If(c bool).Then(v interface{}).Else(v interface{}).Float()   float64 error
 
 ```
 
