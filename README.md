@@ -56,6 +56,7 @@ Utils is a go language development toolkit that mainly includes functions such a
   str.String(i interface{})
   str.Length(s)
   str.Ufirst(s)
+  
 ```
 
 ## Slice
@@ -86,6 +87,7 @@ Utils is a go language development toolkit that mainly includes functions such a
   sli.Range(start, end, step int64) (intslice []int64)
   sli.JoinInt(s []int,sep ...string) string
   sli.SplitInt(str string, sep ...string) ([]int, error)
+
 ```
 
 ## Convert
@@ -93,6 +95,7 @@ Utils is a go language development toolkit that mainly includes functions such a
 ```go
   import "github.com/kirinlabs/utils/convert"
 
+  convert.Int2Bytes(v interface{}) []byte
   convert.Int(v interface{}) (int64, error)
   convert.Float(v interface{}) (float64, error)
   convert.Bool(bs []byte) (bool, error)

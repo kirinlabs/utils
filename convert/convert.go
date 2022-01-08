@@ -1,6 +1,8 @@
 package convert
 
 import (
+	"bytes"
+	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"reflect"
@@ -79,6 +81,45 @@ func Bool(bs []byte) (bool, error) {
 		return true, nil
 	}
 	return strconv.ParseBool(string(bs))
+}
+
+func Int2Bytes(v interface{}) []byte {
+	b := bytes.NewBuffer([]byte{})
+	switch v.(type) {
+	case int:
+		bit := 32 << (^uint(0) >> 63)
+		if bit == 64 {
+			binary.Write(b, binary.BigEndian, int64(v.(int)))
+		} else {
+			binary.Write(b, binary.BigEndian, int32(v.(int)))
+		}
+	case int8:
+		binary.Write(b, binary.BigEndian, v.(int8))
+	case int16:
+		binary.Write(b, binary.BigEndian, v.(int16))
+	case int32:
+		binary.Write(b, binary.BigEndian, v.(int32))
+	case int64:
+		binary.Write(b, binary.BigEndian, v.(int64))
+	case uint:
+		bit := 32 << (^uint(0) >> 63)
+		if bit == 64 {
+			binary.Write(b, binary.BigEndian, uint64(v.(uint)))
+		} else {
+			binary.Write(b, binary.BigEndian, uint32(v.(uint)))
+		}
+	case uint8:
+		binary.Write(b, binary.BigEndian, v.(uint8))
+	case uint16:
+		binary.Write(b, binary.BigEndian, v.(uint16))
+	case uint32:
+		binary.Write(b, binary.BigEndian, v.(uint32))
+	case uint64:
+		binary.Write(b, binary.BigEndian, v.(uint64))
+	default:
+		return nil
+	}
+	return b.Bytes()
 }
 
 func Bytes(buf []byte, val reflect.Value) (b []byte, ok bool) {
